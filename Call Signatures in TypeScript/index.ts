@@ -1,0 +1,90 @@
+// 🔹 1️⃣ What is Call Signature?
+// ✅ In TypeScript
+// A call signature defines the shape of a function.
+// It describes:
+// Parameters
+// Return type
+// But NOT the implementation
+
+// Example:
+// type Greet = (country: string) => string;
+// This means:
+// Takes country: string
+// Returns string
+
+
+// 🔹 2️⃣ What is Function Signature in JavaScript?
+// In JavaScript, there is NO type system.
+// Function signature simply means:
+// function greet(name, age) { }
+// It defines:
+// Function name
+// Parameters
+// But JS does NOT define return type.
+
+
+
+// ✅ Student Type with Call Signature
+type Student = {
+  name: string;
+  age: number;
+  gender?: string;
+  greet: (country: string) => string; // call signature 
+  // (country:string):string;// pure call signature 
+};
+
+// ✅ Object
+const student1: Student = {
+  name: "Akash",
+  age: 23,
+  greet: function (country: string): string {
+    return `Welcome My name is ${this.name}, I am ${this.age} yrs old & I am from ${country}`;
+  },
+};
+
+// ✅ Introduction function
+const introduction = (student: Student): string => {
+  const { name, age } = student; // destructuring
+  return `Welcome My name is ${name}, I am ${age} yrs old`;
+};
+
+// ✅ Calling
+console.log(introduction(student1));
+console.log(student1.greet("India"));
+
+
+// 🔹 6️⃣ When Is Call Signature Used?
+// ✅ 1. Inside object types
+// type API = {
+//   fetchData: (url: string) => Promise<string>;
+// }
+// ✅ 2. For function types
+// type Add = (a: number, b: number) => number;
+// ✅ 3. In React (very common)
+// type Props = {
+//   onClick: () => void;
+// }
+// ✅ 4. In Context API
+// type TodosContext = {
+//   handleAddTodo: (task: string) => void;
+// }
+// 🔥 Interview Answer
+
+// If interviewer asks:
+
+// ❓ What is Call Signature?
+
+// You say:
+
+// A call signature defines the shape of a function including its parameters and return type without providing the implementation. It is commonly used inside type aliases or interfaces to describe function structures.
+
+
+// 🔹 8️⃣ Important Concept: this
+// Inside object method:
+// greet: function () { }
+// this refers to the object.
+// If you use arrow function:
+// greet: (country) => { }
+// Arrow function does NOT bind this properly.
+// For objects, prefer normal function.
+

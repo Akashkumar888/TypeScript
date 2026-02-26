@@ -7,13 +7,68 @@ console.log("This is classes");
 // tsc --watch        -> ek folder ke sare file ko watch karega 
 // tsc -w             -> ek folder ke sare file ko watch karega
 // private public access modifiers
+// class Department{
+//   // by default all things are public 
+//   // public name:string;
+//   // private employees:string[];
+//   constructor(public name:string,private employees:string[]){ // shorthand property 
+//     // this.name=n;
+//     // this.employees=[];
+//   }
+//   describe(this.Department){
+//     console.log("Department",this.name);
+//   }
+//   addEmployee(emp:string){
+//     this.employees.push(emp);
+//   }
+//   printEmployee(){
+//     console.log("Number of employee: ",this.employees.length);
+//     console.log("Name of employee: ",this.employees);
+//   }
+// };
+// const accounting=new Department("CSE",[]);
+// accounting.describe();
+// // const accountingCopy={
+// //   name:"ECE",
+// //   describe:accounting.describe
+// // }
+// // accountingCopy.describe();
+// accounting.addEmployee("Akash");
+// accounting.addEmployee("Priya");
+// accounting.printEmployee();
+// readonly 
+// class Department{
+//   // by default all things are public 
+//   public name:string;
+//   private employees:string[];
+//   private readonly id:string;
+//   constructor(n:string){ // shorthand property 
+//    this.name=n;
+//    this.employees=[];
+//    this.id="d1";// only once you can initialize 
+//   }
+//   describe(this.Department){
+//     console.log("Department",this.name);
+//   }
+//   addEmployee(emp:string){
+//     this.employees.push(emp);
+//   }
+//   printEmployee(){
+//     console.log("Number of employee: ",this.employees.length);
+//     console.log("Name of employee: ",this.employees);
+//   }
+// };
+// inheritance
+// override properties & protected access modifier 
 class Department {
     constructor(n) {
         this.name = n;
         this.employees = [];
+        this.id = "d1"; // only once you can initialize 
     }
     describe(Department) {
-        console.log("Department", this.name);
+        console.log("Department: ", this.name);
+        console.log("Id: ", this.id);
     }
     addEmployee(emp) {
         this.employees.push(emp);
@@ -24,13 +79,45 @@ class Department {
     }
 }
 ;
-const accounting = new Department("CSE");
-accounting.describe();
-// const accountingCopy={
-//   name:"ECE",
-//   describe:accounting.describe
-// }
-// accountingCopy.describe();
-accounting.addEmployee("Akash");
-accounting.addEmployee("Priya");
-accounting.printEmployee();
+// setter and getter methods 
+class AccountingDepartment extends Department {
+    //  reports:string[]=[];
+    constructor(id, reports) {
+        super(id); // it calls parent class or base class constructor 
+        this.reports = reports;
+    }
+    addReports(text) {
+        this.reports.push(text);
+    }
+    printReports() {
+        console.log("Reports: ", this.reports);
+    }
+    addEmployee(emp) {
+        if (emp === 'Patel') {
+            return;
+        }
+        this.employees.push(emp);
+    }
+    get getReports() {
+        if (this.reports.length > 0) {
+            return this.reports;
+        }
+        throw new Error("No reports available");
+    }
+    ;
+    set setReports(value) {
+        if (!value) {
+            throw new Error("Please pass valid value.");
+        }
+        this.reports.push(value);
+    }
+}
+;
+const accDep = new AccountingDepartment("d2", []);
+accDep.addReports("Bugs");
+accDep.printReports();
+accDep.describe();
+accDep.addEmployee("Ankit");
+accDep.addEmployee("Kumar");
+accDep.printEmployee();
+// setter and getter
