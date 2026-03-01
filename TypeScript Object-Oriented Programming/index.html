@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!-- <script src="./dist/index.js" type="module" defer></script> -->
+  <script src="./dist/index.js" type="module" ></script>
+</body>
+</html>
+
+<!-- ✅ 1️⃣ Why we use type="module" ?
+<script src="./dist/index.js" type="module"></script>
+What is this?
+🔹 What it does:
+When you use:
+type="module"
+What is this?
+It tells the browser:
+"This JavaScript file is an ES Module."
+That means you can use:
+
+import ...
+export ...
+Without type="module"
+import / export will NOT work
+Everything becomes global
+Not industry standard
+
+✅ 2️⃣ Why we use defer ?
+Normally:
+<script src="file.js"></script>
+What is this?
+Browser:
+Stops HTML parsing
+Loads JS
+Executes JS
+Then continues HTML
+❌ This blocks page rendering.
+With defer:
+<script src="file.js" defer></script>
+What is this?
+Browser:
+Parses full HTML first
+Then runs JS
+DOM is ready
+⚡ Important:
+👉 When you use type="module"
+You DO NOT need defer
+Because:
+Modules are deferred automatically.
+So this is enough:
+<script type="module" src="./dist/index.js"></script>
+What is this?
+✔ Industry correct
+❌ No need to write defer -->
