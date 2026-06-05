@@ -1,1 +1,245 @@
+/* ==========================
+   Global
+========================== */
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#ffffff;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ==========================
+   Main Container
+========================== */
+
+main{
+  width:420px;
+  margin:70px auto;
+}
+
+/* ==========================
+   Heading
+========================== */
+
+h1{
+  text-align:center;
+  font-size:32px;
+  font-weight:700;
+  color:#333;
+
+  margin-bottom:20px;
+}
+
+/* ==========================
+   Navbar
+========================== */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+
+  border-bottom:1px solid #e4e4e4;
+
+  padding-bottom:10px;
+  margin-bottom:22px;
+}
+
+.navbar a{
+  flex:1;
+
+  text-align:center;
+
+  text-decoration:none;
+
+  color:#c7c7c7;
+
+  font-size:18px;
+  font-weight:600;
+
+  position:relative;
+}
+
+.navbar a:hover{
+  color:#666;
+}
+
+.navbar a.active{
+  color:#666;
+}
+
+.navbar a.active::after{
+  content:"";
+
+  position:absolute;
+
+  width:100%;
+  height:2px;
+
+  background:#777;
+
+  left:0;
+  bottom:-11px;
+}
+
+/* ==========================
+   Form
+========================== */
+
+form{
+  display:flex;
+  align-items:center;
+
+  gap:12px;
+
+  margin-bottom:25px;
+}
+
+form input{
+  flex:1;
+
+  height:40px;
+
+  border:1px solid #dddddd;
+
+  outline:none;
+
+  padding:0 12px;
+
+  font-size:14px;
+}
+
+form input:focus{
+  border-color:#999;
+}
+
+form button{
+  width:70px;
+  height:40px;
+
+  border:none;
+
+  background:#6ecb7d;
+
+  color:white;
+
+  font-size:14px;
+  font-weight:600;
+
+  cursor:pointer;
+}
+
+form button:hover{
+  background:#58bd69;
+}
+
+/* ==========================
+   Todo List
+========================== */
+
+ul{
+  list-style:none;
+}
+
+li{
+  display:flex;
+  align-items:center;
+
+  gap:18px;
+
+  padding:14px 18px;
+
+  border-top:1px solid #ececec;
+}
+
+li:last-child{
+  border-bottom:1px solid #ececec;
+}
+
+/* ==========================
+   Checkbox
+========================== */
+
+li input[type="checkbox"]{
+  cursor:pointer;
+}
+
+/* ==========================
+   Label
+========================== */
+
+li label{
+  flex:1;
+
+  font-size:14px;
+  font-weight:600;
+
+  color:#7b7b7b;
+
+  text-transform:uppercase;
+}
+
+/* ==========================
+   Completed Todo
+========================== */
+
+li input[type="checkbox"]:checked + label{
+  text-decoration:line-through;
+
+  color:#d36a8c;
+}
+
+/* Highlight completed row */
+
+li:has(input[type="checkbox"]:checked){
+  background:#fdf2f4;
+}
+
+/* ==========================
+   Delete Button
+========================== */
+
+li button{
+  border:none;
+
+  background:#e05c84;
+
+  color:white;
+
+  padding:8px 16px;
+
+  font-size:12px;
+  font-weight:600;
+
+  cursor:pointer;
+}
+
+li button:hover{
+  background:#d44a75;
+}
+
+/* ==========================
+   No Todo Text
+========================== */
+
+p{
+  text-align:center;
+
+  color:#999;
+
+  margin-top:25px;
+
+  font-size:15px;
+}
+
+/* ==========================
+   Todos Heading
+========================== */
+
+h2{
+  display:none;
+}
